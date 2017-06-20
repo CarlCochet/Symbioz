@@ -688,10 +688,6 @@ namespace Symbioz.World.Models.Fights.Fighters
         /// <param name="sourceid"></param>
         public virtual void TakeDamages(TakenDamages damages, int sourceid)
         {
-            if (CharacterRecord.GetCharacterRecordById(this.ContextualId).GodMod)
-                return;
-            if (ApplyFighterEvent(FighterEventType.BEFORE_ATTACKED, sourceid, damages))
-                return;
             LoseLife(damages, sourceid);
         }
         public virtual void OnMoved(List<short> cells)
